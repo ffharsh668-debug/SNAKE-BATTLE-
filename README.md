@@ -2,21 +2,27 @@
 
 An original, mobile-first snake arcade game with a neon arena interface.
 
-## Included in this first build
-- Responsive game lobby and nickname profile (saved on this device)
-- Playable Solo Survival mode with two bot rivals
+## Included
+- Responsive lobby and nickname profile (saved on this device)
+- Solo Survival mode with two bot rivals
 - Keyboard, swipe and on-screen touch-pad controls
 - Food collection, scoring, coins and locally saved best score
 - Eight selectable snake skins with coin unlocks
-- Mobile-friendly full-screen game view
+- Full-screen mobile game view
+- Separate Supabase backend project for Snake Battle
+- Database tables for private room codes and global score submissions
+- Realtime room channel integration for broadcasting player snake positions
+- Global leaderboard reads and score submissions
 
-## Current limitations — clearly disclosed
-Private-room online multiplayer, cross-device accounts, and a global leaderboard are **not live yet**. They need a separate online backend (room signaling, player identity, synchronized game state and persistent ranking). The room UI does not pretend to create working online rooms until that backend is configured. This repository is intentionally separate from JALIYAAN SALES.
+## Important
+The online room and leaderboard code has been connected to the separate backend, but it still needs live multi-device testing before being described as fully verified. Realtime rooms currently synchronize player positions through Supabase Realtime; they are not a competitive authoritative game server. Solo mode remains available.
 
-## Deploy
-This is a static site. Connect this repository to Netlify with:
+This project is intentionally separate from JALIYAAN SALES. Do not connect it to the JALIYAAN SALES database.
+
+## Netlify deployment
+This is a static site:
 - Build command: leave blank
-- Publish directory: `.`
+- Publish directory: `. ` (use `.` without a space)
 - Production branch: `main`
 
-No build step or environment variables are needed for the solo game.
+Connect this GitHub repository to the Netlify project `snake-battle-fzgs` to enable automatic production deploys on every push. The repository root contains `netlify.toml`.
